@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import {NativeRouter, Route, Link } from 'react-router-native';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
         width: '100%',
         height: 50,
       }}>
+      <Link ><Text>Home</Text></Link>
           <Text>Navbar</Text>
       </View>
       <View style = {{
