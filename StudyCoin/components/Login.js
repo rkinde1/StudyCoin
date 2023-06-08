@@ -5,7 +5,6 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function Login ({navigation}) {
     return (
-        <View>
             <View style={styles.container}>
                 <Text style={{fontSize: 50, fontWeight: 'bold', color: '#1496BB'}}>Study Coin</Text>
                 <View style = {styles.button}>
@@ -16,17 +15,16 @@ export default function Login ({navigation}) {
                     flexWrap: 'wrap',
                     justifyContent: 'space-between',
                     }}>
-                    <Text style={styles.Text}>Login</Text>
                 <View style={styles.loginBox}>
+                    <Text style={styles.Text}>Login</Text>
                     <TextInput placeholderTextColor={'grey'} placeholder="username" style={styles.input}/>
                     <TextInput placeholderTextColor={'grey'} placeholder="password" secureTextEntry={true} style={styles.input}/>
                     <Button color="purple" title="Login" onPress={() => navigation.navigate('Dashboard')}>Login</Button>
                 </View>
                     <Button color="purple" title="Get started"></Button>
-                    </View>
+                  </View>
                 </View>
             </View>
-        </View>
     );
 }
 
@@ -62,11 +60,13 @@ const styles = StyleSheet.create({
       padding: 10,
     },
     loginBox: {
-      textAlign: 'center',
-      borderRadius: 10,
-      borderColor: 'purple',
-      width: '100%',
-      height: 350,
-      justifyContent: 'center',
+    textAlign: 'center',
+    borderRadius: 10,
+    borderColor: 'purple',
+    borderWidth: 3,
+    width: '100%',
+    height: 425,
+    justifyContent: 'space-evenly',
+    padding: 30,
     }
   });

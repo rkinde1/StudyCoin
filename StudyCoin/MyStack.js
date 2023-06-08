@@ -18,7 +18,8 @@ const MyStack = () => {
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{title: 'Login'}}/>
+          options={{headerShown: false}}
+          />
         <Stack.Screen
           name="Dashboard"
           component={Dashboard}
