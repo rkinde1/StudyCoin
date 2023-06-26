@@ -32,7 +32,10 @@ const MetamaskSepoliaComponent = () => {
       console.log('Error connecting to Metamask:', error);
     }
   };
-
+  //https://www.quicknode.com/guides/ethereum-development/smart-contracts/how-to-create-and-deploy-an-erc20-token
+  //Good resource for creating a token
+  //https://blog.thirdweb.com/guides/claim-erc20-token-nextjs/
+  //Good with Receiving Tokens after submission of Timer
   const sendTransaction = async () => {
     // Implement logic to send a transaction using the web3 instance
   };
