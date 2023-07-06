@@ -30,7 +30,6 @@ export default function Signup() {
                 .then(res => res.json())
                 .then(data => {
                     alert(data.message);
-                    navigate('/Connect');
                 })
         }
     }

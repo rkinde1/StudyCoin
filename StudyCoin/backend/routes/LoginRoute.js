@@ -15,7 +15,7 @@ return token
 }
 
 
-router.get("/api/login",async(req,res )=> {
+router.post("/api/login",async(req,res )=> {
     console.log('login started')
     try{
 
@@ -42,7 +42,7 @@ router.get("/api/login",async(req,res )=> {
         if(!foundUser)
         {return res.status(400).send({message:"Invalid email or password"})}
         
-         console.log("user exists");
+        console.log("user exists");
          
         //encrypt the password entered by the user and compare it witht the encoded passsword within the databse
         //console.log(password)

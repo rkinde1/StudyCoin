@@ -25,7 +25,7 @@ router.post("/api/register", async(req,res) =>{
         if(founduser)
             {
             console.log("user exist");
-            return res.status(409).send({message:"User with this email adress  already exsist"})}
+            return res.status(409).send({message:"User with this email address already exists"})}
         
 
         console.log("user doesn't exist");
@@ -36,15 +36,16 @@ router.post("/api/register", async(req,res) =>{
 
         //create new user document
         const newUser =  new User({
-            name:req.body.name,
+            name: req.body.firstName,
             email: req.body.email,
-            password:hashPwd,
-            walletID:req.body.walletID})
+            password:hashPwd})
+
             console.log("new user created ");
          
-            await  newUser.save()
+            await newUser.save()
 
             console.log("new user saved ");
+
         const tokens = createrToken(founduser._id)
 
 

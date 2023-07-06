@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 export default function Login() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     
@@ -14,31 +14,26 @@ export default function Login() {
             headers: {
                 'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({username, password})
             })
             .then(res => res.json())
             .then(data => {
                 alert(data.message);
                 //Here we will store token in localstorage
-                if (data.success) {
-                    navigate('/Connect');
-                } else {
-                    alert('Incorrect username or password');
-                }
             }
         )
+        .catch(err => console.log(err));
     }
     return (
         <div>
             <h2>Login</h2>
             <form method="POST" action="/api/login" onSubmit={handleSubmit} >
-                <label htmlFor="username">Username: </label>
-                <input type="text" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <label htmlFor="email">Email: </label>
+                <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br></br>
                 <label htmlFor="password">Password: </label>
                 <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br></br>
-                <button type="submit" onClick={() => navigate('/Connect')}>Login</button>
+                <button type="submit">Login</button>
             </form>
             <a href="/Signup">Sign up here</a>
         </div>
