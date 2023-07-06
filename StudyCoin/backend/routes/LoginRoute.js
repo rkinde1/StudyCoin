@@ -7,8 +7,8 @@ var validator = require('validator');
 const jwt = require('jsonwebtoken');
 
 //create token 
-const createToken = (_id) =>{
-    const token = jwt.sign({id:this.id}, process.env.jwtprivatekey,{expiresIn: "1d"})
+const createToken = (id) =>{
+    const token = jwt.sign({id}, process.env.JWT_PRIVATE_KEY,{expiresIn: "1d"})
 
 
 return token
@@ -18,22 +18,19 @@ return token
 router.post("/api/login",async(req,res )=> {
     console.log('login started')
     try{
+        const email = req.body.email;
+        const password = req.body.password;
 
-        const {email,password} = req.body
-
-        if(!email || !password)
+        if(!email)
         {
-            return res.status(400).send({message: "missing email or password"});
+            return res.status(400).send({message: "missing email"});
 
         }
+        if(!password)
+        {
+            return res.status(400).send({message: "missing password"});
+        }
 
-        const validEmail = await validator.isEmail(email); 
-        
-
-        if(!validEmail)
-            return res.status(400).send({message: "email not valid"});
-        
-        console.log("request has valid email");
 
         //use the findOne method to check if there are user with email provided
         const foundUser = await User.findOne({email:email})
@@ -55,9 +52,10 @@ router.post("/api/login",async(req,res )=> {
           return res.send({message:'Incorrect password or email' }) 
          }
         console.log("request has valid password");
+        console.log(fUser.id);
 
         //generate a token which will allow the user to login as soon as they register
-        const token = await createToken(User._id);
+        const token = await createToken(fUser.id);
         console.log("generated token");
 
         res.cookie("token", token, { withCredentials: true,httpOnly: false,});

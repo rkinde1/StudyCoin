@@ -14,6 +14,7 @@ export default function Login() {
             headers: {
                 'Content-Type': 'application/json'
                 },
+            body: JSON.stringify({ email, password })
             })
             .then(res => res.json())
             .then(data => {
@@ -28,7 +29,7 @@ export default function Login() {
             <h2>Login</h2>
             <form method="POST" action="/api/login" onSubmit={handleSubmit} >
                 <label htmlFor="email">Email: </label>
-                <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br></br>
                 <label htmlFor="password">Password: </label>
                 <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />

@@ -6,8 +6,8 @@ const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
 //create token 
-const createrToken = (_id) =>{
-    const token = jwt.sign({id:this.id}, process.env.jwtprivatekey,{expiresIn: "1d"})
+const createrToken = (id) =>{
+    const token = jwt.sign({id}, process.env.JWT_PRIVATE_KEY,{expiresIn: "1d"})
 
 
 return token
@@ -46,7 +46,8 @@ router.post("/api/register", async(req,res) =>{
 
             console.log("new user saved ");
 
-        const tokens = createrToken(founduser._id)
+        const fUser = await User.findOne({email:req.body.email}).select("+password ");
+        const tokens = createrToken(fUser.id)
 
 
         res.status(201).send({message:"User create successfully"})
