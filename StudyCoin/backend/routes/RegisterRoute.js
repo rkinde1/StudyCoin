@@ -2,17 +2,18 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const {User} = require("../model/Users")
+const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
 //create token 
-const createrToken = (_id) =>{
-    const token = jwt.sign({id:this.id}, process.env.jwtprivatekey,{expiresIn: "1d"})
+const createrToken = (id) =>{
+    const token = jwt.sign({id}, process.env.JWT_PRIVATE_KEY,{expiresIn: "1d"})
 
 
 return token
 }
 
-router.post("/register", async(req,res) =>{
+router.post("/api/register", async(req,res) =>{
     try{
         console.log("register now");
        // const  validData = validate(req.body);
@@ -24,7 +25,7 @@ router.post("/register", async(req,res) =>{
         if(founduser)
             {
             console.log("user exist");
-            return res.status(409).send({message:"User with this email adress  already exsist"})}
+            return res.status(409).send({message:"User with this email address already exists"})}
         
 
         console.log("user doesn't exist");
@@ -35,16 +36,18 @@ router.post("/register", async(req,res) =>{
 
         //create new user document
         const newUser =  new User({
-            name:req.body.name,
+            name: req.body.firstName,
             email: req.body.email,
-            password:hashPwd,
-            walletID:req.body.walletID})
+            password:hashPwd})
+
             console.log("new user created ");
          
-            await  newUser.save()
+            await newUser.save()
 
             console.log("new user saved ");
-        const tokens = createrToken(founduser._id)
+
+        const fUser = await User.findOne({email:req.body.email}).select("+password ");
+        const tokens = createrToken(fUser.id)
 
 
         res.status(201).send({message:"User create successfully"})
