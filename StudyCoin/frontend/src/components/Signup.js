@@ -19,12 +19,23 @@ export default function Signup() {
             e.preventDefault();
         }
         else {
-            navigate('/Connect');
+            e.preventDefault();
+            fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, email, firstName, password })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                })
         }
     }
     return (
         <div>
-            <form method="POST" action="/Connect" onSubmit={handleSubmit}>
+            <form method="POST" action="/api/register" onSubmit={handleSubmit}>
                 <label htmlFor="username">Username: </label>
                 <input type="text" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 <br></br>
