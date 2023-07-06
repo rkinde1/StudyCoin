@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const {User} = require("../model/Users")
+const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
 //create token 
@@ -12,7 +13,7 @@ const createrToken = (_id) =>{
 return token
 }
 
-router.post("/register", async(req,res) =>{
+router.post("/api/register", async(req,res) =>{
     try{
         console.log("register now");
        // const  validData = validate(req.body);

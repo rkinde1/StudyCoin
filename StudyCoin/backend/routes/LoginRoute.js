@@ -15,7 +15,7 @@ return token
 }
 
 
-router.post("/login",async(req,res )=> {
+router.get("/api/login",async(req,res )=> {
     console.log('login started')
     try{
 
@@ -23,7 +23,7 @@ router.post("/login",async(req,res )=> {
 
         if(!email || !password)
         {
-            return res.status(400).send({message: "missing emaiil or password"});
+            return res.status(400).send({message: "missing email or password"});
 
         }
 
@@ -83,7 +83,7 @@ const validate = data =>{
     const schema = Joi.object(
         {
             email:Joi.string().email().required.label("email"),
-            password:passwordComplexity().required.label("password"),
+            password:Joi.passwordComplexity().required.label("password"),
         }
     )
 

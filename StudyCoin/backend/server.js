@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const connectDB = require('./config/dbConn');
-const userRoute = require("./routes/userRoute");
-const authRoute = require("./routes/authRoute");
+const LoginRoute = require("./routes/LoginRoute");
+const RegisterRoute = require("./routes/RegisterRoute");
 const cors = require("cors");
 var cookieParser = require('cookie-parser')
 
@@ -43,25 +43,20 @@ app.use(
 );
 app.use(cookieParser());
 
-
-
 //routes
 
 app.get('/', async (req, res) =>{
-console.log("testing 123");
-res.json({message:"get request  default"})
+  console.log("testing 123");
+  res.json({message:"get request  default"})
 });
 
 //register route
 
-app.use(userRoute);
+app.use(LoginRoute);
 
 //login route 
 
-app.use(authRoute);
-
-
-
+app.use(RegisterRoute);
 
 // Start the server but only if mango db is connected
 mongoose.connection.once('open',() =>{

@@ -6,15 +6,32 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     
-    // //Once user inputs login information, information is sent to the backend
-    // let handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    // }
+    //Once user inputs login information, information is sent to the backend
+    let handleSubmit = async (e) => {
+        e.preventDefault();
+        fetch('/api/login', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({username, password})
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message);
+                //Here we will store token in localstorage
+                if (data.success) {
+                    navigate('/Connect');
+                } else {
+                    alert('Incorrect username or password');
+                }
+            }
+        )
+    }
     return (
         <div>
             <h2>Login</h2>
-            <form method="POST" action="/" >
+            <form method="POST" action="/api/login" onSubmit={handleSubmit} >
                 <label htmlFor="username">Username: </label>
                 <input type="text" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 <br></br>
