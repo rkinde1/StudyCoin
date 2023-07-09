@@ -36,7 +36,7 @@ export default function Login() {
                 <br></br>
                 <button type="submit">Login</button>
             </form>
-            <a href="/Signup">Sign up here</a>
+            <a className="background" href="/Signup">Sign up here</a>
         </div>
     )
 }
