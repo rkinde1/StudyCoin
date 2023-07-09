@@ -24,6 +24,9 @@ const MetamaskSepoliaComponent = () => {
       // Get the selected wallet address
       const accounts = await web3.eth.getAccounts();
       setWalletAddress(accounts[0]);
+      
+      //Here we store the walletAddress
+      localStorage.setItem('walletAddress', accounts[0]);
 
       // Get the wallet balance
       const balance = await web3.eth.getBalance(accounts[0]);
@@ -43,6 +46,7 @@ const MetamaskSepoliaComponent = () => {
   return (
     <div>
       <h2>Metamask & Sepolia Wallet</h2>
+      {localStorage.getItem('walletAddress')}
       {web3 ? (
         <>
           <p>Wallet Address: {walletAddress}</p>

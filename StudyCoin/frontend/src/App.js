@@ -8,26 +8,27 @@ import Signup from './components/Signup';
 
 function App() {
   return (
-    //This is where our rouuter will be
-    <BrowserRouter>
-    <Navbar>
-      <Navbar.Brand><a href="/"><img src={require('./components/StudyCoinLogo.png')} alt="Study Coin Logo"></img></a></Navbar.Brand>
-      <Navbar.Content>
-        <Navbar.Link href="/Connect">Connect</Navbar.Link>
-        <Navbar.Link href="/timer">Timer</Navbar.Link>
-        <Navbar.Link href="/login">Login</Navbar.Link>
-        <Navbar.Link href="/signup">Signup</Navbar.Link>
-      </Navbar.Content>
-    </Navbar>
-    <h1>StudyCoin</h1>
-      <Routes>
-        <Route path="/" exact element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/Connect" element={<MetamaskSepoliaComponent />} />
-        <Route path="/timer" element={<Timer />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="background">
+      <BrowserRouter>
+      <Navbar>
+        <Navbar.Brand><a href="/"><img src={require('./components/StudyCoinLogo.png')} alt="Study Coin Logo"></img></a></Navbar.Brand>
+        <Navbar.Content>
+          <Navbar.Link href="/Connect">Connect</Navbar.Link>
+          <Navbar.Link href="/timer">Timer</Navbar.Link>
+          <Navbar.Link href="/login">Login</Navbar.Link>
+          <Navbar.Link href="/signup">Signup</Navbar.Link>
+        </Navbar.Content>
+      </Navbar>
+      <h1>StudyCoin</h1>
+        <Routes>
+          <Route path="/" exact element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/Connect" element={<MetamaskSepoliaComponent />} />
+          <Route path="/timer" element={<Timer />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

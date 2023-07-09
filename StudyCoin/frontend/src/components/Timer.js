@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import './Timer.css';
 
 export default function Timer () {
   var [startVar, setStartVar] = useState(false);
@@ -8,7 +9,7 @@ export default function Timer () {
   //You can add gradient here
     const start = () =>{
       return (
-        <div>
+        <div className="center">
         <CountdownCircleTimer
             isPlaying
             duration={1500}
@@ -23,9 +24,9 @@ export default function Timer () {
             }
             return (
               <div>
-                <p >Remaining</p>
-                <p >{minutes}:{seconds}</p>
-                <p >Minutes</p>
+                <p>Remaining</p>
+                <p>{minutes}:{seconds}</p>
+                <p>Minutes</p>
               </div>
               )}
           }
@@ -36,6 +37,7 @@ export default function Timer () {
 
     const breakTimer = () => {
       return (
+        <div className="center">
         <CountdownCircleTimer
             isPlaying
             duration={300}
@@ -57,14 +59,15 @@ export default function Timer () {
               )}
           }
         </CountdownCircleTimer>
+      </div>
       );
     }
 
     const breakTimeButtons = () => {
       return (
         <div>
-          <button title="Start Break" onClick={() => {setStartBreak(true)}}>Start</button>
-          <button title="Stop Break" onClick={() => {setStartBreak(false)}}>Stop</button>
+          <button title="Start Break" onClick={() => {setStartBreak(true)}}>Start Break</button>
+          <button title="Stop Break" onClick={() => {setStartBreak(false)}}>Stop Break</button>
         </div>
       );
     }
@@ -78,85 +81,23 @@ export default function Timer () {
       );
     }
 
+    function restart () {
+      setStartVar(false);
+      setStartBreak(false);
+      setBreakTime(0);
+    };
 
     return (
-      <div>
-        <div >
-          <p >Pomodoro timer</p>
+      <div className="background" >
+        <div>
+          <h2>Pomodoro timer</h2>
           {/* <Text style={styles.textDescription}>Start Earning Ethereum!</Text> */}
           {startVar === true && start()}
           {startBreak === true && breakTimer()}
           {breakTime === 300 && breakTimeButtons()}
           {breakTime === 0 && regularTimeButtons()}
+          <button title="Restart" onClick={() => {restart()}}>Restart</button>
         </div>
       </div>
     );
 }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         display: 'flex',
-//         flexDirection: 'row',
-//         justifyContent: 'space-evenly',
-//         marginVertical: 100,
-//         paddingHorizontal: 50,
-//         width: '100%',
-//     },
-//     button: {
-//         paddingHorizontal: 10,
-//         paddingVertical: 10,
-//         borderRadius: 40,
-//         backgroundColor: '#1496BB',
-//     },
-//     buttonText: {
-//         color: 'Black',
-//         fontWeight: 'bold',
-//         marginVertical: 100,
-//         fontSize: 35,
-//         display: 'flex',
-//         paddingHorizontal: 60,
-//         justifyContent: 'center',
-//         alignItems: 'center'
-//     },
-//     timerTextDesign: {
-//       color: 'Black',
-//       fontWeight: 'bold',
-//       font: 'Roboto',
-//       fontSize: 30,
-//       display: 'flex',
-//       paddingHorizontal: 60,
-//       justifyContent: 'center',
-//       alignItems: 'center'
-//     },
-//     textDescription : {
-//       color: 'Black',
-//       font: 'Roboto',
-//       fontSize: 18,
-//       display: 'flex',
-//       paddingHorizontal: 60,
-//       justifyContent: 'center',
-//       alignItems: 'center'
-//     },
-//     //Could probably fix the formatting heres
-//     historyContainer: {
-//       display: 'flex',
-//       justifyContent: 'center',
-//       alignItems: 'center',
-//       marginVertical: 100,
-//       paddingHorizontal: 50,
-//       backgroundColor: 'white',
-//       borderRadius: 30,
-//       border: 'solid',
-//       borderWidth: 1,
-//       width: 100,
-//       height: 100,
-//     },
-//     remainingTime: {
-//       color: 'gray', 
-//       fontSize: 25,
-//       display: 'flex',
-//       paddingHorizontal: 60,
-//       justifyContent: 'center',
-//       alignItems: 'center'
-//     }
-// });
