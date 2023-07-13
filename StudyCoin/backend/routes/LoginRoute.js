@@ -66,7 +66,7 @@ router.post("/api/login",async(req,res )=> {
 
         console.log("logged in and token sent to cookie");
 
-
+        res.status(200).send({message:"Log in sucessfully",token:token});
         
         
 
