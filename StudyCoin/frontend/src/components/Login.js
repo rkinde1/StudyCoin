@@ -20,6 +20,7 @@ export default function Login() {
             .then(data => {
                 alert(data.message);
                 //Here we will store token in localstorage
+                navigate('/Connect');
             }
         )
         .catch(err => console.log(err));

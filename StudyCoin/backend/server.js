@@ -36,7 +36,7 @@ app.use((req,res,next) => {
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3001"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -45,10 +45,9 @@ app.use(cookieParser());
 
 //routes
 
-app.get('/', async (req, res) =>{
-  console.log("testing 123");
-  res.json({message:"get request  default"})
-});
+// app.get('/', async (req, res) =>{
+//   res.json({message:"get request  default"})
+// });
 
 //register route
 
@@ -63,8 +62,8 @@ mongoose.connection.once('open',() =>{
   console.log('Connected to db');
 
   //connect to server after connect to mango db
-  app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');})
+  app.listen(3001, () => {
+    console.log('Server is running on http://localhost:3001');})
 });
 ;
 
