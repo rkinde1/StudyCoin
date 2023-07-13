@@ -31,6 +31,7 @@ const MetamaskSepoliaComponent = () => {
       // Get the wallet balance
       const balance = await web3.eth.getBalance(accounts[0]);
       setWalletBalance(web3.utils.fromWei(balance, 'ether'));
+      localStorage.setItem('walletBalance', web3.utils.fromWei(balance, 'ether'));
     } catch (error) {
       console.log('Error connecting to Metamask:', error);
     }

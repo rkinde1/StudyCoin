@@ -90,6 +90,7 @@ export default function Timer () {
     return (
       <div className="background" >
         <div>
+          <h1>Current Balance: {localStorage.getItem('walletBalance')} ETH</h1>
           <h2>Pomodoro timer</h2>
           {/* <Text style={styles.textDescription}>Start Earning Ethereum!</Text> */}
           {startVar === true && start()}
