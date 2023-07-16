@@ -1,7 +1,5 @@
 # How to Run StudyCoin
 
-How to access the app
-
 # 1) cd into StudyCoin so that in terminal it appears as StudyCoin\StudyCoin
 # 2) cd backend
 Depending how you download this folder, it should look like studycoin/studycoin/backend before you install all dependencies and run it.
