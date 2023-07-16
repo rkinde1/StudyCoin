@@ -47,13 +47,12 @@ const MetamaskSepoliaComponent = () => {
   return (
     <div>
       <h2>Metamask & Sepolia Wallet</h2>
-      {localStorage.getItem('walletAddress')}
       {web3 ? (
         <>
           <p>Wallet Address: {walletAddress}</p>
           <p>Wallet Balance: {walletBalance} ETH</p>
           <button onClick={connectWallet}>Connect Wallet</button>
-          <button onClick={sendTransaction}>Send Transaction</button>
+          {/* <button onClick={sendTransaction}>Send Transaction</button> */}
         </>
       ) : (
         <p>Please install Metamask to use the Sepolia wallet.</p>
