@@ -1,13 +1,17 @@
-# StudyCoin
+# How to Run StudyCoin
 
 How to access the app
 
-# 1 cd into StudyCoin so that in terminal it appears as StudyCoin\StudyCoin
+# 1) cd into StudyCoin so that in terminal it appears as StudyCoin\StudyCoin
+# 2) cd backend
+Depending how you download this folder, it should look like studycoin/studycoin/backend before you install all dependencies and run it.
+# 3) npm i
+This will install all dependencies used in the backend. It will show up as successful when it says running on http://localhost:3001 after running the below command:
+# 4) node server.js
 
-# npm i 
+# 5) open another terminal and cd frontend
+# 6) npm i
+Installs all dependencies used on the frontend. Once successful, it will open up in a new tab
+# 7) npm start
 
-This will install all dependencies
-
-# npm start
-
-After all packages has been downloaded, run this command to start it. To have it appear on android or on ios, you must download additional things but you can access it on the web as well by clicking w
+Have any questions? Shoot me an email at rkinde1@students.towson.edu
