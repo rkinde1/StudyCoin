@@ -39,7 +39,7 @@ export default function Timer () {
         <div className="center">
         <CountdownCircleTimer
             isPlaying
-            duration={1}
+            duration={1500}
             size={250}
             colors={['#1496BB', '#85bdde', '#5bbaae','#6fcb9f', '#A30000', '#A30000']}
             colorsTime={[1500, 1400, 1000, 750, 2, 0]}>
@@ -68,7 +68,7 @@ export default function Timer () {
         <div className="center">
         <CountdownCircleTimer
             isPlaying
-            duration={3}
+            duration={300}
             size={250}
             colors={['#1496BB', '#85bdde', '#5bbaae','#6fcb9f', '#A30000', '#A30000']}
             colorsTime={[300, 240, 180, 80, 2, 0]}>
