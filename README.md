@@ -12,4 +12,6 @@ This will install all dependencies used in the backend. It will show up as succe
 Installs all dependencies used on the frontend. Once successful, it will open up in a new tab
 # 7) npm start
 
+# 8) Using our STC coin. Using SepoliaETH, you must navigate to the Token or Asset column, click import token, and use this hash: 0x5F1712a315b1123f0781DB8292e40a36bB035F4E
+
 Have any questions? Shoot me an email at rkinde1@students.towson.edu
