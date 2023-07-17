@@ -36,26 +36,31 @@ export default function Signup() {
     }
     return (
         <div>
+            <h2>Sign up</h2>
             <form method="POST" action="/api/register" onSubmit={handleSubmit}>
-                <label htmlFor="username">Username: </label>
-                <input type="text" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <br></br>
-                <label htmlFor="email">Email: </label>
-                <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <br></br>
-                <label htmlFor="firstName">First Name: </label>
-                <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                <br></br>
-                <label htmlFor="password">Password: </label>
-                <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <br></br>
-                <label htmlFor="verify">Verify Password: </label>
-                <input type="password" name="verify" id="verify" value={verify} onChange={(e) => setVerify(e.target.value)} />
+                <div style={{"padding":"0px 100px 0px 0px"}}>
+                    <label htmlFor="username">Username: </label>
+                    <input type="text" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <br></br>
+                    <label htmlFor="email">Email: </label>
+                    <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <br></br>
+                    <label htmlFor="firstName">First Name: </label>
+                    <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <br></br>
+                    <label htmlFor="password">Password: </label>
+                    <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <br></br>
+                    <label htmlFor="verify">Verify Password: </label>
+                    <input type="password" name="verify" id="verify" value={verify} onChange={(e) => setVerify(e.target.value)} />
+                </div>
                 <br></br>
                 <button type="submit">Sign up</button>
             </form>
+            <br></br>
             <p>Already have an account?</p>
             <a className="background" href="/Login">Login here</a>
+
         </div>
     )
 }

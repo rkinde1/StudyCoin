@@ -37,17 +37,23 @@ export default function Login() {
     }
     return (
         <div>
-            <h2>Login</h2>
+            <h2>Login:</h2>
             <form method="POST" action="/api/login" onSubmit={handleSubmit} >
-                <label htmlFor="email">Email: </label>
-                <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <div style={{"padding":"0px 100px 0px 0px"}}>
+                    <label htmlFor="email">Email: </label>
+                    <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <br></br>
+                    <br></br>
+                    <label htmlFor="password">Password: </label>
+                    <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
                 <br></br>
-                <label htmlFor="password">Password: </label>
-                <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br></br>
-                <button type="submit">Login</button>
+                <button type="submit">Login
+                </button>
             </form>
-            <a className="background" href="/Signup">Sign up here</a>
+            <br></br>
+            <a className="background" href="/Signup">Create an account</a>
         </div>
     )
 }
