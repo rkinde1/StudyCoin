@@ -1,4 +1,11 @@
 .App {
+  text-align: center
+}
+
+.background {
+  background-color:#252342;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
@@ -22,18 +29,18 @@ html {
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #252342;
+  min-height: 1000vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(100px + 2vmin);
+  color: 252342;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #FF9100;
 }
 
 @keyframes App-logo-spin {
@@ -47,5 +54,45 @@ html {
 
 img {
   width: auto;
-  height: 75px;
+  height: 100px;
+}
+
+button{
+  border: bold;
+  background-color: #FF9100;
+  color: #252342;
+  font-size: medium;
+  font-weight: 500;
+  height: 50px;
+  width: 100px;
+  border: 1px solid FF9100;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px black;
+	text-shadow: none;
+  padding: 10px 10px 10px 10px;
+}
+
+label{
+  font-size: larger;
+  color: gold;
+  padding: 8px;
+  font-weight: 2000;
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+
+h1{
+  color: gold;
+  /* font-size: xx-large;
+  padding: 0px 800px 0px 0px; */
+}
+
+input {
+  width: 25%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid skyblue;
 }

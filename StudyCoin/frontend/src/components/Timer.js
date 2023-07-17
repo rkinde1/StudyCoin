@@ -39,7 +39,7 @@ export default function Timer () {
         <div className="center">
         <CountdownCircleTimer
             isPlaying
-            duration={1500}
+            duration={15}
             size={250}
             colors={['#1496BB', '#85bdde', '#5bbaae','#6fcb9f', '#A30000', '#A30000']}
             colorsTime={[1500, 1400, 1000, 750, 2, 0]}>
@@ -68,7 +68,7 @@ export default function Timer () {
         <div className="center">
         <CountdownCircleTimer
             isPlaying
-            duration={300}
+            duration={3}
             size={250}
             colors={['#1496BB', '#85bdde', '#5bbaae','#6fcb9f', '#A30000', '#A30000']}
             colorsTime={[300, 240, 180, 80, 2, 0]}>
@@ -128,14 +128,25 @@ export default function Timer () {
       <div className="background" >
         <div>
           <h1>Current Balance: {localStorage.getItem('walletBalance')} ETH</h1>
-          <h2>Pomodoro timer</h2>
+          <h2>Pomodoro Timer</h2>
+          <h2>STC Token Address: 0x5F1712a315b1123f0781DB8292e40a36bB035F4E</h2>
           {/* <Text style={styles.textDescription}>Start Earning Ethereum!</Text> */}
+          {localStorage.getItem('walletAddress') === null ? (
+            <>
+            {window.alert("Your wallet is not connected! Navigate to Connect first!")} 
+            <h2>Please connect your wallet in the Connect Page</h2>
+            </>
+            )
+           : (
+          <>
           {startVar === true && start()}
           {/*Calls the break timer*/}
           {startBreak === true && breakTimer()}
           {breakTime === 300 && breakTimeButtons()}
           {finished === false && breakTime=== 0 && regularTimeButtons()}
           {finished === true && sessionCompleted()}
+          </>
+          )}
         </div>
       </div>
     );
